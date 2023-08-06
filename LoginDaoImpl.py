@@ -4,7 +4,7 @@ from LoginStruct import Login
 
 
 def customerLogin(email, password):
-    connection = sqlite3.connect('C:/Users/Joey/PycharmProjects/BankApplication/venv/Banks.db', isolation_level=None)
+    connection = sqlite3.connect('C:/Users/Joey/OneDrive/Documents/GitHub/Banking-App/venv/Banks.db', isolation_level=None)
     cursor = connection.cursor()
     query = "SELECT * FROM customerlogin where email =  ? AND password = ?"
     cursor.execute(query, (email, password))
@@ -20,7 +20,7 @@ def customerLogin(email, password):
 
 
 def employeeLogin(email, password):
-    connection = sqlite3.connect('C:/Users/Joey/PycharmProjects/BankApplication/venv/Banks.db', isolation_level=None)
+    connection = sqlite3.connect('C:/Users/Joey/OneDrive/Documents/GitHub/Banking-App/venv/Banks.db', isolation_level=None)
     cursor = connection.cursor()
     query = "SELECT * FROM employeelogin where email =  ? AND password = ?"
     cursor.execute(query, (email, password))

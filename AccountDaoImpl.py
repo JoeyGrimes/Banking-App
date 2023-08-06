@@ -8,7 +8,7 @@ from AccountSummary import SummaryOfAccs
 
 
 def viewAccountDetails(id):
-    connection = sqlite3.connect('C:/Users/Joey/PycharmProjects/BankApplication/venv/Banks.db', isolation_level=None)
+    connection = sqlite3.connect('C:/Users/Joey/OneDrive/Documents/GitHub/Banking-App/venv/Banks.db', isolation_level=None)
     cursor = connection.cursor()
     query = "SELECT account_details.accountbalance, customerlogin.id, customerlogin.email, customerlogin.first, customerlogin.last " \
             "FROM account_details " \
@@ -28,7 +28,7 @@ def viewAccountDetails(id):
 
 def deposit(id, amount):
     # Select the amount first, then increment the amount
-    connection = sqlite3.connect('C:/Users/Joey/PycharmProjects/BankApplication/venv/Banks.db', isolation_level='DEFERRED')
+    connection = sqlite3.connect('C:/Users/Joey/OneDrive/Documents/GitHub/Banking-App/venv/Banks.db', isolation_level='DEFERRED')
     cursor = connection.cursor()
     query1 = "SELECT accountbalance FROM account_details WHERE customer_id = ?"
     cursor.execute(query1, (id,))
@@ -49,7 +49,7 @@ def deposit(id, amount):
 
 
 def withdraw(id, amount):
-    connection = sqlite3.connect('C:/Users/Joey/PycharmProjects/BankApplication/venv/Banks.db', isolation_level='DEFERRED')
+    connection = sqlite3.connect('C:/Users/Joey/OneDrive/Documents/GitHub/Banking-App/venv/Banks.db', isolation_level='DEFERRED')
     cursor = connection.cursor()
     query1 = "SELECT accountbalance FROM account_details WHERE customer_id = ?"
     cursor.execute(query1, (id,))
@@ -73,7 +73,7 @@ def withdraw(id, amount):
 
 
 def sendMoney(email, amount, id):
-    connection = sqlite3.connect('C:/Users/Joey/PycharmProjects/BankApplication/venv/Banks.db', isolation_level='DEFERRED')
+    connection = sqlite3.connect('C:/Users/Joey/OneDrive/Documents/GitHub/Banking-App/venv/Banks.db', isolation_level='DEFERRED')
     cursor = connection.cursor()
 
     # Check if the recipient exists in the database
@@ -125,7 +125,7 @@ def sendMoney(email, amount, id):
 # Plug the logic first into the other functionalities to insert into the transaction table upon withdraw, deposit, and transfer.
 # Then make edits to view trans by id
 def viewTransactionHistory(id):
-    connection = sqlite3.connect('C:/Users/Joey/PycharmProjects/BankApplication/venv/Banks.db', isolation_level='DEFERRED')
+    connection = sqlite3.connect('C:/Users/Joey/OneDrive/Documents/GitHub/Banking-App/venv/Banks.db', isolation_level='DEFERRED')
     cursor = connection.cursor()
     # This is going to return a list of rows, need to make a list of transaction objects
     query = "SELECT * FROM transactionhistory WHERE id_number = ?"
@@ -139,7 +139,7 @@ def viewTransactionHistory(id):
 
 
 def createAccount(first, last, email, password):
-    connection = sqlite3.connect('C:/Users/Joey/PycharmProjects/BankApplication/venv/Banks.db', isolation_level='DEFERRED')
+    connection = sqlite3.connect('C:/Users/Joey/OneDrive/Documents/GitHub/Banking-App/venv/Banks.db', isolation_level='DEFERRED')
     cursor = connection.cursor()
     query = "INSERT INTO customerlogin(email, password, first, last) VALUES(?,?,?,?)"
     cursor.execute(query, (email, password, first, last))
@@ -154,7 +154,7 @@ def createAccount(first, last, email, password):
 
 
 def viewAllAccounts():
-    connection = sqlite3.connect('C:/Users/Joey/PycharmProjects/BankApplication/venv/Banks.db', isolation_level=None)
+    connection = sqlite3.connect('C:/Users/Joey/OneDrive/Documents/GitHub/Banking-App/venv/Banks.db', isolation_level=None)
     cursor = connection.cursor()
     query = "SELECT customerlogin.first, customerlogin.last, customerlogin.email, account_details.accountbalance, account_details.customer_id " \
             "FROM customerlogin " \

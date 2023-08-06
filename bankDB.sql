@@ -40,7 +40,8 @@ PRAGMA foreign_keys = ON;
 
 INSERT INTO employeelogin (email, password, first, last)
 VALUES
-    ('admin@matadorbanking.com', 'admin1', 'Admin', 'Admin');
+    ('admin@matadorbanking.com', 'admin1', 'Admin', 'Admin'),
+    ('emp', 'emp', 'emp', 'emp');
 
 INSERT INTO customerlogin (email, password, first, last)
 VALUES
