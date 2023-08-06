@@ -1,4 +1,3 @@
-from LoginStruct import Login
 import LoginDaoImpl
 
 

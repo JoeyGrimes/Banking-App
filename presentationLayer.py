@@ -5,8 +5,6 @@
 import sys
 import AccountService
 import LoginService
-import LoginDaoImpl
-from LoginStruct import Login
 
 
 def main():
