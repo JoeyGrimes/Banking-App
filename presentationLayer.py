@@ -1,6 +1,6 @@
-#Joe Grimes
-#CIS 131
-#7/30/2023
+# Joe Grimes
+# CIS 131
+# 7/30/2023
 
 import sys
 import AccountService
@@ -83,8 +83,8 @@ def main():
                 try:
                     acc = loginService.employeeLogin(email, password)
                     if acc is None:
-                        print("Invalid Login")
-                        continueApp = 'y'
+                        print("Invalid Login, Please try again")
+                        continue
                     else:
                         print("Login Successful")
                 except AttributeError:
@@ -145,7 +145,6 @@ def main():
                             accountService.createAccount(firstName, lastName, cusEmail, cusPass)
                             print("account successfully created")
 
-
                         case 2:
                             print("All customer accounts:")
                             list = accountService.viewAllAccounts()
@@ -169,8 +168,6 @@ def main():
                         else:
                             print("Please enter y or n")
 
-
-
             case 2:
                 print("Please enter customer email")
                 email = str(input())
@@ -178,8 +175,8 @@ def main():
                 password = str(input())
                 acc = loginService.customerLogin(email, password)
                 if acc is None:
-                    print("Invalid Login")
-                    continueApp = 'y'
+                    print("Invalid Login, please try again")
+                    continue
                 else:
                     print("Login Successful")
                 print("Welcome", acc.getFirstName(), acc.getLastName())
